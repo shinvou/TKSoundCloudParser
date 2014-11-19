@@ -9,7 +9,7 @@ Just drag the "TKSoundCloudParser" folder to your project and import the header 
 
 Get information from the API:
 ```obj-c
-[TKSoundCloudParser getSoundCloudInformationForURL:https://soundcloud.com/vinylalkohol withBlock:^(NSDictionary *responseData, NSError *error) {
+[TKSoundCloudParser getSoundCloudInformationForURL:@"https://soundcloud.com/vinylalkohol" withBlock:^(NSDictionary *responseData, NSError *error) {
     // Do something with the responseData dictionary which contains lot of information
 
     label.text = [NSString stringWithFormat:@"%@", [responseData objectForKey:@"username"]];
@@ -18,7 +18,7 @@ Get information from the API:
 
 Download a song:
 ```obj-c
-[TKSoundCloudParser getSoundCloudTrackForURL:https://soundcloud.com/vinylalkohol/jahresgl-ckblick withBlock:^(NSData *trackData, NSString *artist, NSString *title, NSError *error) {
+[TKSoundCloudParser getSoundCloudTrackForURL:@"https://soundcloud.com/vinylalkohol/jahresgl-ckblick" withBlock:^(NSData *trackData, NSString *artist, NSString *title, NSError *error) {
     if (!error) {
         // Save the song
 
@@ -30,6 +30,8 @@ Download a song:
     }
 }];
 ```
+
+This parser should be easily extendable for your individual needs. I just implemented song downloading because I didn't need other stuff.
 
 ### How do I get?
 Right here!
